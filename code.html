@@ -1,31 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Word Formation: Exam Practice – B1</title>
+  <meta charset="UTF-8" />
+  <title>Picture discussion B2</title>
 
-<!-- App-specific fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-
-<style>
-/**
- * styles.css — All styling for the Word Formation Masterclass B2 app.
- *
- * Sections in this file:
- *   1. Englishkola design-system tokens (colors, fonts) + hero landing page
- *   2. App-specific :root overrides
- *   3. Top navigation bar
- *   4. Hub / dashboard screen (category cards)
- *   5. Study screen (passage, rules, affix highlighting)
- *   6. Flashcard screen (3D flip card)
- *   7. Trainer / exercise screen
- *   8. Shared buttons, modals, and responsive tweaks
- */
-
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Comfortaa:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Dancing+Script:wght@600;700&display=swap');
+  <style>
+    /* ============= Hero Landing Design (Englishkola) ============= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Comfortaa:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;800&family=Dancing+Script:wght@600;700&display=swap');
 
     :root {
         --hero-primary: #49E8CC;
@@ -86,7 +67,7 @@
         font-family: var(--font-main);
         background-color: var(--bg);
         color: var(--text);
-        font-size: 17px;
+        font-size: 16px;
         line-height: 1.5;
         transition: background-color var(--transition);
     }
@@ -104,7 +85,7 @@
         padding: 24px;
         overflow: hidden;
         z-index: 1;
-        background: linear-gradient(160deg, #FFFFFF 0%, #FEFDFA 45%, #FCF9F1 75%, #FAF4E8 100%);
+        background-color: var(--hero-warm-cream);
         font-family: var(--hero-font-body);
     }
 
@@ -114,7 +95,6 @@
         z-index: 1;
         pointer-events: none;
         opacity: 0.9;
-        object-fit: contain;
         filter: drop-shadow(0 8px 14px rgba(46, 123, 141, 0.15));
         user-select: none;
     }
@@ -129,7 +109,7 @@
 
     @media (max-width: 768px) {
         .hero-decor-hide-sm { display: none; }
-        .hero-decor { opacity: 0.75; width: 56px !important; height: 56px !important; }
+        .hero-decor { opacity: 0.75; width: 50px !important; }
     }
     @media (prefers-reduced-motion: reduce) {
         .hero-float-slow, .hero-float-med, .hero-float-fast { animation: none; }
@@ -148,7 +128,7 @@
     }
 
     .hero-logo {
-        width: 270px;
+        width: 230px;
         height: auto;
         filter: drop-shadow(0 10px 18px rgba(46, 123, 141, 0.18));
     }
@@ -164,23 +144,6 @@
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: var(--hero-primary);
-    }
-
-    .hero-title-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .hero-subtitle {
-        font-family: 'Comfortaa', var(--hero-font-body);
-        font-size: clamp(1.3rem, 3.6vw, 2.1rem);
-        font-weight: 700;
-        color: var(--hero-ocean-teal);
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-        margin: 0;
     }
 
     .hero-content p {
@@ -200,7 +163,7 @@
         padding: 16px 44px;
         border-radius: 999px;
         font-family: 'Comfortaa', var(--hero-font-body);
-        font-size: 21px;
+        font-size: 20px;
         font-weight: 700;
         color: var(--hero-ocean-teal);
         background: var(--hero-primary);
@@ -212,14 +175,14 @@
     }
 
     .hero-start-btn:hover {
-        color: var(--hero-ocean-teal);
-        background: #A8F5E4;
-        box-shadow: 0 18px 32px -14px rgba(73,232,204,0.9);
+        color: #ffffff;
+        background: #33CDBE;
+        box-shadow: 0 18px 32px -14px rgba(51,205,190,0.9);
         transform: translateY(-5px) scale(1.03);
     }
 
     .hero-start-btn span {
-        font-size: 23px;
+        font-size: 22px;
         transition: transform 0.22s ease;
     }
 
@@ -231,1656 +194,999 @@
         position: absolute;
         bottom: 16px;
         z-index: 2;
-        font-size: 14px;
+        font-size: 13px;
         font-family: var(--hero-font-body);
         color: var(--hero-text-muted);
     }
 
-
-  /* ===================== APP-SPECIFIC STYLES ===================== */
-  :root {
-    --hero-warm-cream: #FAF7F2;
-    --hero-ocean-teal: #2E7B8D;
-    --hero-primary: #49E8CC;
-    --hero-primary-light: #A8F5E4;
-    --hero-text-muted: #64748B;
-    
-    --bg: #FAF7F2;          
-    --surface: #FFFFFF;
-    --surface-alt: #F1F5F9; 
-    --border: #E2E8F0;      
-    --text: #1E293B;        
-    --text-2: #334155; 
-    --text-muted: #64748B;
-    --success: #15803D;
-    --error: #B91C1C;
-
-    --app-bg-gradient: linear-gradient(160deg, #FFFFFF 0%, #FEFDFA 45%, #FCF9F1 75%, #FAF4E8 100%);
-
-    --hero-font-display: 'Dancing Script', cursive;
-    --hero-font-body: 'Inter', system-ui, sans-serif;
-    --shadow-card: 0 10px 25px rgba(46, 123, 141, 0.08);
-    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    font-family: var(--hero-font-body);
-    background: var(--app-bg-gradient);
-    background-attachment: fixed;
-    color: var(--text);
-    font-size: 17px;
-    line-height: 1.65;
-    margin: 0;
-    padding: 0;
-  }
-
-  .app-screen { display: none; }
-  .app-screen.active-screen { display: block; }
-
-  /* Watercolor decoration layer for the app screens */
-  .app-watercolor-decor {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  .app-decor-img {
-    position: absolute;
-    height: 120px;
-    width: 120px;
-    object-fit: contain;
-    opacity: 0.16;
-    filter: drop-shadow(0 8px 14px rgba(46,123,141,0.1));
-  }
-  .app-decor-1 { top: 6%; right: 4%; transform: rotate(8deg); }
-  .app-decor-2 { bottom: 6%; left: 3%; transform: rotate(-10deg); }
-  .app-decor-3 { top: 58%; right: -2%; transform: rotate(-4deg); }
-  .app-decor-4 { top: 32%; left: -2%; transform: rotate(9deg); }
-  .app-decor-5 { bottom: -2%; right: 18%; transform: rotate(6deg); }
-  .app-decor-6 { top: -2%; left: 20%; transform: rotate(-6deg); }
-  @media (max-width: 768px) {
-    .app-decor-img { opacity: 0.1; width: 90px !important; height: 90px !important; }
-  }
-  .app-top-nav, .app-screen { position: relative; z-index: 1; }
-
-  /* Navigation */
-  .app-top-nav {
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-brand-spacer {
-    width: 1px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-
-  .nav-link-btn {
-    background: transparent;
-    border: none;
-    font-family: var(--hero-font-body);
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--text-muted);
-    cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 8px;
-    transition: var(--transition);
-  }
-
-  .nav-link-btn:hover, .nav-link-btn.active {
-    color: var(--hero-ocean-teal);
-    background: var(--surface-alt);
-  }
-
-  /* Hub Grid */
-  .hub-container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 24px;
-    margin-top: 30px;
-    text-align: left;
-  }
-
-  .category-card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(2px);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 28px;
-    box-shadow: var(--shadow-card);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 6px;
-    height: 100%;
-    background: var(--card-accent, var(--hero-ocean-teal));
-  }
-
-  .category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
-  }
-
-  .category-badge {
-    display: inline-block;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 6px 14px;
-    border-radius: 6px;
-    margin-bottom: 12px;
-    background: var(--badge-bg, #E2F4F0);
-    color: var(--badge-color, #2E7B8D);
-  }
-
-  .category-card h3 {
-    font-family: var(--hero-font-display);
-    color: var(--card-accent, var(--hero-ocean-teal));
-    margin: 0 0 12px 0;
-    font-size: clamp(2rem, 3.8vw, 3.4rem);
-    line-height: 1.25;
-    padding-top: 4px;
-    font-weight: 800;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
-    filter: saturate(1.75) contrast(1.08);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-  }
-
-  .category-card p {
-    color: var(--text);
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-
-  .suffix-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .suffix-pill {
-    font-size: 13.5px;
-    font-weight: 700;
-    padding: 5px 10px;
-    border-radius: 6px;
-    background: var(--pill-bg, var(--surface-alt));
-    color: var(--pill-color, var(--text-2));
-    border: 1px solid var(--pill-border, var(--border));
-  }
-
-  /* Study Section Styles */
-  .study-container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
-
-  .study-header {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-top: 6px solid var(--active-accent, var(--hero-ocean-teal));
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow-card);
-  }
-
-  .passage-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-card);
-    line-height: 1.8;
-    font-size: 1.08rem;
-  }
-
-  .interactive-word {
-    background: #FEF3C7;
-    color: #92400E;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 6px;
-    cursor: pointer;
-    border-bottom: 2px solid #F59E0B;
-    transition: var(--transition);
-    display: inline-block;
-  }
-
-  .interactive-word:hover {
-    background: #FDE68A;
-    transform: scale(1.03);
-  }
-
-  .word-breakdown-card {
-    display: none;
-    background: #F1EDFB;
-    border: 1px solid #E1D8F7;
-    border-left: 4px solid #7A5FB8;
-    border-radius: 10px;
-    padding: 16px;
-    margin: 16px 0;
-    font-size: 0.95rem;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Trainer Styles */
-  .trainer-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-
-  .trainer-card {
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(2px);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px;
-    box-shadow: var(--shadow-card);
-    position: relative;
-    border-top: 6px solid var(--active-accent, var(--hero-ocean-teal));
-  }
-
-  /* ---- Morphology Tree (Word Families) screen ---- */
-  .morph-tree-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 22px 18px 18px;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow-card);
-    text-align: center;
-  }
-
-  .morph-root-node {
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: 2.1rem;
-    font-weight: 800;
-    color: #fff;
-    background: linear-gradient(135deg, var(--active-accent, var(--hero-ocean-teal)), var(--hero-primary));
-    padding: 8px 28px;
-    border-radius: 14px;
-    box-shadow: 0 10px 22px -10px rgba(0,0,0,0.35);
-    letter-spacing: 1px;
-  }
-
-  .morph-root-gloss {
-    margin-top: 6px;
-    font-size: 13px;
-    font-style: italic;
-    color: var(--text-muted);
-  }
-
-  .morph-trunk {
-    width: 3px;
-    height: 16px;
-    background: var(--active-accent, var(--border));
-    opacity: 0.5;
-    margin: 6px auto 0;
-  }
-
-  .morph-branches {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-    position: relative;
-    padding-top: 14px;
-  }
-
-  .morph-branches::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 12%;
-    right: 12%;
-    height: 2px;
-    background: var(--active-accent, var(--border));
-    opacity: 0.35;
-  }
-
-  .morph-branch {
-    flex: 1 1 170px;
-    max-width: 210px;
-    background: rgba(255,255,255,0.92);
-    border: 2px solid var(--active-accent, var(--border));
-    border-radius: 12px;
-    padding: 12px 14px;
-    cursor: pointer;
-    transition: var(--transition);
-    position: relative;
-    text-align: left;
-  }
-
-  .morph-branch::before {
-    content: '';
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    width: 2px;
-    height: 22px;
-    background: var(--active-accent, var(--border));
-    opacity: 0.35;
-  }
-
-  .morph-branch:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 22px -12px rgba(0,0,0,0.28);
-  }
-
-  .morph-branch-pos {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--active-accent, var(--hero-ocean-teal));
-    margin-bottom: 6px;
-  }
-
-  .morph-branch-words {
-    font-family: var(--hero-font-body);
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1.3;
-    margin-bottom: 4px;
-    letter-spacing: 0.1px;
-  }
-
-  .morph-branch-hint {
-    font-size: 11.5px;
-    color: var(--text-muted);
-    opacity: 0.8;
-  }
-
-  .morph-branch-example {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
-    font-size: 13.5px;
-    line-height: 1.45;
-    color: var(--text);
-    border-top: 1px dashed var(--border);
-    margin-top: 0;
-  }
-
-  .morph-branch.expanded .morph-branch-hint {
-    display: none;
-  }
-
-  .morph-branch.expanded .morph-branch-example {
-    max-height: 220px;
-    opacity: 1;
-    margin-top: 12px;
-    padding-top: 10px;
-  }
-
-  @media (max-width: 640px) {
-    .morph-branches::before { display: none; }
-    .morph-branch::before { display: none; }
-  }
-
-  /* ---- Flashcard memorisation screen ---- */
-  .flashcard-nav {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 14px;
-  }
-
-  .flashcard-counter {
-    font-size: 12.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--active-accent, var(--hero-ocean-teal));
-    padding: 4px 12px;
-    border-radius: 99px;
-    background: var(--badge-bg, #E2F4F0);
-  }
-
-  .flashcard-wrap {
-    perspective: 1400px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .flashcard {
-    position: relative;
-    width: 100%;
-    min-height: 250px;
-    transform-style: preserve-3d;
-    transition: transform 0.55s cubic-bezier(.4,.2,.2,1);
-    cursor: pointer;
-  }
-
-  .flashcard.is-flipped {
-    transform: rotateY(180deg);
-  }
-
-  .flashcard-face {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    background: rgba(255,255,255,0.92);
-    border: 3px solid var(--active-accent, var(--hero-ocean-teal));
-  }
-
-  .flashcard-back {
-    transform: rotateY(180deg);
-  }
-
-  .fc-eyebrow {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--active-accent, var(--hero-ocean-teal));
-    margin-bottom: 16px;
-  }
-
-  .fc-stem {
-    font-family: var(--font-display);
-    font-size: 3.4rem;
-    font-weight: 800;
-    color: var(--active-accent, var(--hero-primary));
-    text-transform: capitalize;
-    line-height: 1.1;
-    filter: saturate(1.3);
-  }
-
-  .fc-hint {
-    margin-top: 14px;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  .fc-sentence {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    color: var(--text);
-    max-width: 520px;
-  }
-
-  .progress-indicator {
-    font-size: 12.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--active-accent, var(--hero-ocean-teal));
-    margin-bottom: 8px;
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: var(--badge-bg, #E2F4F0);
-  }
-
-  .affix-hl {
-    color: #E2185C;
-    font-weight: 800;
-  }
-
-  .arrow-connector {
-    color: var(--active-accent, var(--hero-ocean-teal));
-    font-weight: 700;
-    margin: 0 2px;
-    opacity: 0.75;
-  }
-
-  .category-title {
-    font-family: var(--hero-font-display);
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--active-accent, var(--hero-primary));
-    text-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    margin-top: 4px;
-    margin-bottom: 20px;
-  }
-
-  .sentence-prompt {
-    font-size: 1.15rem;
-    color: var(--text-2);
-    margin-bottom: 24px;
-    line-height: 1.7;
-  }
-
-  .sentence-prompt input.user-answer-input {
-    font-family: var(--hero-font-body);
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    outline: none;
-    width: 220px;
-    transition: var(--transition);
-    background: var(--surface-alt);
-    color: var(--text);
-    text-transform: uppercase;
-  }
-
-  .sentence-prompt input.user-answer-input:focus {
-    border-color: var(--active-accent, var(--hero-ocean-teal));
-    background: var(--surface);
-    box-shadow: 0 0 0 3px rgba(46, 123, 141, 0.15);
-  }
-
-  .sentence-prompt input.user-answer-input.correct {
-    border-color: var(--success);
-    background: #F0FDF4;
-    color: var(--success);
-  }
-
-  .sentence-prompt input.user-answer-input.incorrect {
-    border-color: var(--error);
-    background: #FEF2F2;
-    color: var(--error);
-  }
-
-  .root-hint {
-    display: inline-block;
-    background: var(--surface-alt);
-    color: var(--text);
-    border: 1px solid var(--border);
-    font-size: 0.9rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 6px;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-
-  .feedback-box {
-    margin-top: 16px;
-    font-weight: 600;
-    font-size: 16px;
-    min-height: 24px;
-  }
-  .feedback-box.success { color: var(--success); }
-  .feedback-box.error { color: var(--error); }
-  .feedback-box.reveal { color: #D97706; }
-
-  .trainer-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .btn-group-left, .btn-group-right {
-    display: flex;
-    gap: 10px;
-  }
-
-  .trainer-btn {
-    font-family: var(--hero-font-body);
-    font-weight: 600;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    transition: var(--transition);
-  }
-
-  .btn-primary {
-    background: var(--active-accent, var(--hero-ocean-teal));
-    color: #ffffff;
-  }
-  .btn-primary:hover { opacity: 0.9; }
-
-  .btn-secondary {
-    background: var(--surface-alt);
-    color: var(--text-2);
-    border: 1px solid var(--border);
-  }
-  .btn-secondary:hover { background: var(--border); }
-
-  .btn-accent {
-    background: #FEF3C7;
-    color: #B45309;
-    border: 1px solid #FDE68A;
-  }
-  .btn-accent:hover { background: #FDE68A; }
-
-  /* Modal */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15, 23, 42, 0.6);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  .modal-overlay.active { display: flex; }
-
-  .modal-card {
-    background: var(--surface);
-    border-radius: 16px;
-    max-width: 600px;
-    width: 100%;
-    padding: 28px;
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
-    position: relative;
-  }
-
-</style>
-
+    /* ============= Global & Layout ============= */
+    * {
+      box-sizing: border-box;
+      font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #FCFAFA;
+      color: #3D3533;
+      font-size: 20px; /* larger global text */
+    }
+
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 12px 22px 22px 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      font-size: 3.1rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #49E8CC 0%, #2E7B8D 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #49E8CC;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .title-bike-deco {
+      width: 100px;
+      height: auto;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 8px rgba(46, 123, 141, 0.35));
+    }
+
+    .leaf-deco {
+      width: 32px;
+      height: auto;
+      margin-left: 6px;
+      vertical-align: middle;
+      transform: rotate(-15deg);
+    }
+
+    .topic-plant-deco {
+      width: 30px;
+      height: auto;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .subtitle {
+      margin-top: 4px;
+      font-size: 1.15rem; /* larger subtitle */
+      color: #6E615E;
+      line-height: 1.6;
+    }
+
+    /* ============= How-to-use dropdown panel ============= */
+    .how-to-panel {
+      margin-top: 8px;
+      background: #ffffff;
+      border: 2px solid #A8CED6;
+      border-radius: 12px;
+      padding: 4px 16px;
+    }
+
+    .how-to-panel summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 10px 0;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #7A5FB8;
+      display: flex;
+      align-items: center;
+    }
+
+    .how-to-panel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .how-to-panel summary::before {
+      content: "▸ ";
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .how-to-panel[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .how-to-content {
+      padding: 4px 2px 16px 2px;
+      color: #3D3533;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .how-to-content ol {
+      margin: 6px 0 0 0;
+      padding-left: 22px;
+    }
+
+    .how-to-content li {
+      margin-bottom: 6px;
+    }
+
+    .how-to-content strong {
+      color: #C2604F;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 950px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 14px;
+      border: 2px solid #A8CED6;
+      box-shadow: 0 4px 14px rgba(46, 123, 141, 0.15);
+    }
+
+    /* ============= Topic & Questions ============= */
+    label {
+      font-weight: 600;
+      color: #7A5FB8;
+      font-size: 1.45rem; /* larger */
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .custom-select-wrapper {
+      position: relative;
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    .custom-select-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 12px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      border-radius: 10px;
+      border: 2px solid #A8CED6;
+      background: #ffffff;
+      color: #3D3533;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .custom-select-btn:focus,
+    .custom-select-btn.open {
+      outline: none;
+      border-color: #49E8CC;
+      background: linear-gradient(135deg, #49E8CC88 0%, #49E8CC22 100%);
+    }
+
+    .custom-select-btn .arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .custom-select-btn.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    .custom-select-list {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      max-height: 260px;
+      overflow-y: auto;
+      margin: 0;
+      padding: 6px;
+      list-style: none;
+      background: #ffffff;
+      border: 2px solid #A8CED6;
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(46, 123, 141, 0.22);
+      z-index: 50;
+      display: none;
+    }
+
+    .custom-select-list.open {
+      display: block;
+    }
+
+    .custom-select-list li {
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #3D3533;
+      font-size: 1.05rem;
+    }
+
+    .custom-select-list li:hover,
+    .custom-select-list li.selected {
+      background: linear-gradient(135deg, #49E8CC88 0%, #49E8CC33 100%);
+    }
+
+    .topic-desc {
+      margin: 10px 0;
+      color: #6E615E;
+      font-size: 1.05rem; /* larger */
+    }
+
+    .questions-box {
+      background: #E3F1F5;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #A8CED6;
+      color: #3D3533;
+      margin-bottom: 15px;
+      font-size: 1.05rem; /* larger */
+    }
+
+    /* ============= Images ============= */
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .img-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 3px 12px rgba(46, 123, 141, 0.18);
+    }
+
+    .img-card img {
+      width: 100%;
+      height: 210px; /* increased height */
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============= Under-image phrase boxes ============= */
+    .under-panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .phrase-box-under {
+      background: #ffffff;
+      border: 2px solid #A8CED6;
+      border-radius: 12px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .phrase-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-bottom: 1px solid #ECE4DE;
+      display: flex;
+      align-items: center;
+    }
+
+    .phrase-header h2 {
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      font-size: 1.8rem;
+      color: #7A5FB8;
+    }
+
+    .phrase-body {
+      padding: 6px 16px 10px 20px;
+      font-size: 1.05rem; /* larger */
+    }
+
+    .phrase-body ul {
+      margin: 0;
+      padding: 0;
+      list-style-position: inside;
+    }
+
+    .phrase-body li,
+    .phrase-group-body li {
+      margin-bottom: 6px;
+      color: #3D3533;
+      padding: 4px 6px;
+      border-radius: 6px;
+    }
+
+    #speculateList li,
+    #hesitationList li,
+    #compareList li,
+    #contrastList li {
+      cursor: pointer;
+    }
+
+    #speculateList li:hover,
+    #hesitationList li:hover,
+    #compareList li:hover,
+    #contrastList li:hover {
+      background: linear-gradient(135deg, #49E8CC88 0%, #49E8CC33 100%);
+    }
+
+    /* ============= Right-side phrase boxes ============= */
+    .phrase-group {
+      background: #ffffff;
+      border: 2px solid #A8CED6;
+      border-radius: 12px;
+      max-height: 220px;
+      margin-bottom: 18px;
+      overflow-y: auto;
+    }
+
+    .phrase-group-header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      padding: 6px 10px;
+      border-bottom: 1px solid #ECE4DE;
+      display: flex;
+      align-items: center;
+    }
+
+    .phrase-group-header h2 {
+      margin: 0;
+      font-family: "Dancing Script", cursive;
+      font-size: 1.8rem;
+      color: #7A5FB8;
+    }
+
+    .phrase-group-body {
+      padding: 6px 16px 10px 20px;
+      font-size: 1.05rem;
+    }
+
+    .context-help {
+      margin: 0 0 4px 0;
+      font-size: 1rem; /* larger */
+      color: #9E8E8A;
+    }
+
+    .context-example {
+      color: #D2691E;
+      font-weight: 600;
+    }
+
+    #contextList li {
+      color: #C2604F;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* ============= Inline Timer ============= */
+    .inline-timer {
+      width: 100%;
+      background: #E3F1F5;
+      border: 2px solid #A8CED6;
+      padding: 8px 12px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(46, 123, 141, 0.15);
+      margin-bottom: 14px;
+      font-size: 1.1rem; /* larger */
+    }
+
+    .inline-timer-label {
+      font-weight: 600;
+      color: #7A5FB8;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .timer-display {
+      font-size: 1.4rem; /* larger */
+      font-weight: 700;
+      color: #49E8CC;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .timer-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 16px;
+    }
+
+    .timer-buttons button {
+      border: none;
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #205C52;
+      font-weight: 600;
+    }
+
+    .start-btn { background: #B7EDE0; }
+    .pause-btn { background: #FFE1A8; }
+    .reset-btn { background: #F6B8AE; }
+  </style>
 </head>
-<body>
 
+<body>
 <div id="hero-landing">
         <div aria-hidden="true">
-            <img src="images/img01.png" alt="" class="hero-decor hero-float-slow" style="bottom: 7%; right: 44%; width: 46px; height: 46px; object-fit: contain; transform: rotate(9deg); animation-delay: 3.9s; opacity: 0.85;" onerror="this.style.display='none'">
-            <img src="images/img02.png" alt="" class="hero-decor hero-float-slow" style="top: 12%; left: 20%; width: 92px; height: 92px; object-fit: contain; transform: rotate(-8deg); animation-delay: 0s;" onerror="this.style.display='none'">
-            <img src="images/img03.png" alt="" class="hero-decor hero-float-med hero-decor-hide-sm" style="top: 40%; left: 9%; width: 92px; height: 92px; object-fit: contain; transform: rotate(9deg); animation-delay: 1.2s;" onerror="this.style.display='none'">
-            <img src="images/img04.png" alt="" class="hero-decor hero-float-fast" style="bottom: 12%; left: 22%; width: 92px; height: 92px; object-fit: contain; transform: rotate(-6deg); animation-delay: 3.4s;" onerror="this.style.display='none'">
-            <img src="images/img05.png" alt="" class="hero-decor hero-float-med" style="top: 12%; right: 20%; width: 92px; height: 92px; object-fit: contain; transform: rotate(8deg); animation-delay: 2.8s;" onerror="this.style.display='none'">
-            <img src="images/img06.png" alt="" class="hero-decor hero-float-slow hero-decor-hide-sm" style="top: 40%; right: 9%; width: 92px; height: 92px; object-fit: contain; transform: rotate(-9deg); animation-delay: 4.1s;" onerror="this.style.display='none'">
-            <img src="images/img07.png" alt="" class="hero-decor hero-float-fast" style="bottom: 12%; right: 22%; width: 92px; height: 92px; object-fit: contain; transform: rotate(6deg); animation-delay: 1.9s;" onerror="this.style.display='none'">
+            <img src="images/img001.png" alt="" class="hero-decor hero-float-slow" style="top: 10%; left: 25%; width: 68px; transform: rotate(-8deg); animation-delay: 0s;" onerror="this.style.display='none'">
+            <img src="images/img002.png" alt="" class="hero-decor hero-float-fast hero-decor-hide-sm" style="top: 27%; left: 13%; width: 95px; transform: rotate(11deg); animation-delay: 0.6s;" onerror="this.style.display='none'">
+            <img src="images/img003.png" alt="" class="hero-decor hero-float-med" style="top: 40%; left: 8%; width: 82px; transform: rotate(-7deg); animation-delay: 1.2s;" onerror="this.style.display='none'">
+            <img src="images/img004.png" alt="" class="hero-decor hero-float-fast" style="top: 60%; left: 12%; width: 100px; transform: rotate(-9deg); animation-delay: 3.4s;" onerror="this.style.display='none'">
+            <img src="images/img005.png" alt="" class="hero-decor hero-float-slow" style="bottom: 10%; left: 27%; width: 130px; transform: rotate(4deg); animation-delay: 5.8s;" onerror="this.style.display='none'">
+
+            <img src="images/img006.png" alt="" class="hero-decor hero-float-med" style="top: 10%; right: 25%; width: 110px; transform: rotate(9deg); animation-delay: 2.8s;" onerror="this.style.display='none'">
+            <img src="images/img007.png" alt="" class="hero-decor hero-float-slow hero-decor-hide-sm" style="top: 27%; right: 13%; width: 85px; transform: rotate(-13deg); animation-delay: 4.1s;" onerror="this.style.display='none'">
+            <img src="images/img008.png" alt="" class="hero-decor hero-float-slow" style="top: 45%; right: 8%; width: 110px; transform: rotate(7deg); animation-delay: 1.7s;" onerror="this.style.display='none'">
+            <img src="images/img009.png" alt="" class="hero-decor hero-float-fast" style="top: 64%; right: 12%; width: 105px; transform: rotate(6deg); animation-delay: 1.9s;" onerror="this.style.display='none'">
+            <img src="images/img010.png" alt="" class="hero-decor hero-float-slow" style="bottom: 12%; right: 20%; width: 115px; transform: rotate(-6deg); animation-delay: 5.2s;" onerror="this.style.display='none'">
         </div>
 
         <div class="hero-content">
-            <img src="images/img08.png" alt="Word Formation Masterclass Logo" class="hero-logo hero-float-slow" onerror="this.style.display='none'">
+            <img src="images/img011.png" alt="Englishkola Logo" class="hero-logo hero-float-slow" onerror="this.style.display='none'">
 
-            <div class="hero-title-group">
-                <h1>Word Formation</h1>
-                <div class="hero-subtitle">Exam Practice &ndash; B2</div>
-            </div>
+            <h1>Picture Discussion-B2</h1>
 
             <p>
-                Build your word formation skills and learn to transform roots into nouns, verbs, adjectives, and adverbs with confidence. With 250+ exercises, you’ll get plenty of practice with every pattern and strengthen your skills along the way.
+                Welcome! This is your space to practice speaking English through pictures. Pick a topic, look at three images, and talk about what you see for one minute. You'll find useful phrases to help you compare, contrast, guess, and think out loud. No pressure &mdash; just pick a topic and start talking.
             </p>
 
             <div style="margin-bottom: 28px;">
                 <button class="hero-start-btn" onclick="startHeroJourney()">
-                    Start your journey on word formation
+                    Start Practicing
                     <span aria-hidden="true">&rarr;</span>
                 </button>
             </div>
         </div>
 
         <footer class="hero-footer">
-            &copy; 2026 Word Formation Masterclass · All rights reserved.
+            &copy; 2026 Englishkola · All rights reserved.
         </footer>
     </div>
 
-    <!-- ============================================================
-         App content below — original structure preserved
-         ============================================================ -->
+    <!-- ==========================================================================
+         Main app content — hidden until Start Practicing is clicked
+         ========================================================================== -->
     <div id="main-app-content" class="hidden-layout-state">
-      <div class="app-watercolor-decor" aria-hidden="true">
-        <img src="images/img07.png" class="app-decor-img app-decor-1" alt="" onerror="this.style.display='none'">
-        <img src="images/img06.png" class="app-decor-img app-decor-2" alt="" onerror="this.style.display='none'">
-        <img src="images/img02.png" class="app-decor-img app-decor-3" alt="" onerror="this.style.display='none'">
-        <img src="images/img05.png" class="app-decor-img app-decor-4" alt="" onerror="this.style.display='none'">
-        <img src="images/img04.png" class="app-decor-img app-decor-5" alt="" onerror="this.style.display='none'">
-        <img src="images/img03.png" class="app-decor-img app-decor-6" alt="" onerror="this.style.display='none'">
+  <div class="container">
+    <header>
+      <div class="title-row">
+        <img src="images/img012.png" alt="" class="title-bike-deco">
+        <h1>Picture Discussion- B2</h1>
       </div>
-  <!-- Top Navigation Bar -->
-  <nav class="app-top-nav">
-    <span class="nav-brand-spacer" aria-hidden="true"></span>
-    <div class="nav-links">
-      <button class="nav-link-btn active" onclick="switchScreen('hubScreen')">All Categories</button>
-      <button class="nav-link-btn" onclick="openCategory('environment')">Environment</button>
-      <button class="nav-link-btn" onclick="openCategory('feelings')">Feelings & Traits</button>
-      <button class="nav-link-btn" onclick="openCategory('communication')">Communication</button>
-      <button class="nav-link-btn" onclick="openCategory('quantities')">Quantities & Time</button>
-    </div>
-  </nav>
-
-  <!-- Hub Selection Screen -->
-  <div id="hubScreen" class="app-screen active-screen">
-    <div class="hub-container">
-      <h1 style="font-family: var(--hero-font-display); font-size: clamp(2.5rem, 4.2vw, 3.2rem); font-weight: 900; margin: 0 0 6px; line-height: 1.1; color: #49E8CC; text-shadow: 0 1px 0 rgba(20,90,75,0.35), 0 2px 6px rgba(20,90,75,0.15); -webkit-text-stroke: 0.4px rgba(20,90,75,0.25); letter-spacing: 0.2px;">
-        Word Formation: Exam Practice <span style="opacity: 0.85;">&ndash; B1</span>
-      </h1>
-      <span style="font-family: 'Comfortaa', sans-serif; font-size: 14px; font-weight: 700; color: var(--hero-ocean-teal); text-transform: uppercase; letter-spacing: 1.5px; background: #E2F4F0; padding: 6px 16px; border-radius: 99px;">
-        B1 Word Formation Master Trainer
-      </span>
-      <h2 style="font-family: var(--hero-font-display); font-size: clamp(2.1rem, 3.7vw, 2.7rem); font-weight: 800; margin: 15px 0 10px; color: #7A5FB8; text-shadow: 0 1px 0 rgba(255,255,255,0.5);">
-        Choose a Morphological Category
-      </h2>
-      <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 30px;">
-        Study the patterns in the word trees and contextual passages, memorise them with the help of the flashcards and then master them with challenging sentence exercises.
-      </p>
-
-      <div class="category-grid">
-        <!-- 1. Everyday Objects & Environment -->
-        <div class="category-card" style="--card-accent: #598F9A; --badge-bg: #E3F1F5; --badge-color: #598F9A;">
-          <div>
-            <span class="category-badge">Everyday Objects & Environment</span>
-            <h3>Weather & Places</h3>
-            <p>Describe weather, places and everyday conditions using simple adjective suffixes.</p>
-            <div class="suffix-pills" style="--pill-bg: #E3F1F5; --pill-color: #2E7B8D; --pill-border: #BAE6FD;">
-              <span class="suffix-pill">-y</span>
-              <span class="suffix-pill">-al</span>
-              <span class="suffix-pill">un-</span>
-            </div>
-          </div>
-          <button class="trainer-btn btn-primary" style="background: #598F9A;" onclick="openCategory('environment')">Study & Exercise &rarr;</button>
+      <details class="how-to-panel">
+        <summary>How to use this app</summary>
+        <div class="how-to-content">
+          <p><strong>Here's what you'll find:</strong> it offers 15 B2-level Picture Discussion topics.
+          Each one comes with three images, two guiding questions, a one-minute speaking timer,
+          and ready phrase banks for comparing, contrasting, speculating and hesitating &mdash;
+          along with example sentences tailored to whichever topic you choose.</p>
+          <p><strong>How to use it:</strong></p>
+          <ol>
+            <li>Click <strong>Topic</strong> and choose one of the 15 topics from the list.</li>
+            <li>Read the guiding questions and look at the three pictures.</li>
+            <li>Press <strong>Start</strong> on the one-minute timer and begin speaking about two of the
+            pictures &mdash; use <strong>Pause</strong> or <strong>Reset</strong> if you need to.</li>
+            <li>Click any phrase in <strong>Comparing</strong>, <strong>Contrasting</strong>,
+            <strong>Speculating</strong> or <strong>Hesitation Devices</strong> to see it used in a full
+            example sentence under <strong>Context Examples</strong>.</li>
+            <li>Change topic any time to practise with new pictures and vocabulary.</li>
+          </ol>
         </div>
+      </details>
+    </header>
 
-        <!-- 2. Thoughts, Feelings & Traits -->
-        <div class="category-card" style="--card-accent: #7A5FB8; --badge-bg: #F1EDFB; --badge-color: #7A5FB8;">
-          <div>
-            <span class="category-badge">Thoughts, Feelings & Traits</span>
-            <h3>Emotions & Character</h3>
-            <p>Talk about feelings and personal qualities, including the -ed/-ing feeling pattern.</p>
-            <div class="suffix-pills" style="--pill-bg: #EDE9FE; --pill-color: #5B21B6; --pill-border: #DDD6FE;">
-              <span class="suffix-pill">-ed / -ing</span>
-              <span class="suffix-pill">-ful / -less</span>
-              <span class="suffix-pill">-ly</span>
-            </div>
-          </div>
-          <button class="trainer-btn btn-primary" style="background: #7A5FB8;" onclick="openCategory('feelings')">Study & Exercise &rarr;</button>
-        </div>
-
-        <!-- 3. Communication & Social Interaction -->
-        <div class="category-card" style="--card-accent: #C27665; --badge-bg: #F3E1DC; --badge-color: #C27665;">
-          <div>
-            <span class="category-badge">Communication & Social Interaction</span>
-            <h3>Talking & Meeting</h3>
-            <p>Turn everyday verbs into the nouns you need for conversations and meetings.</p>
-            <div class="suffix-pills" style="--pill-bg: #FEF3C7; --pill-color: #92400E; --pill-border: #FDE68A;">
-              <span class="suffix-pill">-ion / -ation</span>
-              <span class="suffix-pill">-ing</span>
-            </div>
-          </div>
-          <button class="trainer-btn btn-primary" style="background: #C27665;" onclick="openCategory('communication')">Study & Exercise &rarr;</button>
-        </div>
-
-        <!-- 4. Quantities, Sizes & Time -->
-        <div class="category-card" style="--card-accent: #2E7B8D; --badge-bg: #E0FBF6; --badge-color: #2E7B8D; grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
-          <div>
-            <span class="category-badge">Quantities, Sizes & Time</span>
-            <h3>Measuring & Timing</h3>
-            <p>Learn irregular size nouns and time adverbs that come up again and again in B1 English.</p>
-            <div class="suffix-pills" style="--pill-bg: #FCE7F3; --pill-color: #9D174D; --pill-border: #FBCFE8;">
-              <span class="suffix-pill">Irregular nouns</span>
-              <span class="suffix-pill">-ly (time)</span>
-            </div>
-          </div>
-          <button class="trainer-btn btn-primary" style="background: #2E7B8D; margin-top: 15px;" onclick="openCategory('quantities')">Study & Exercise &rarr;</button>
-        </div>
-
-      </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 1: Study & Discover Screen -->
-  <div id="treeScreen" class="app-screen">
-    <div class="study-container">
-      <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
-        <button class="trainer-btn btn-secondary" onclick="switchScreen('hubScreen')">&larr; Back to Categories</button>
-        <span style="font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">Step 1 of 4: Morphology Tree</span>
-      </div>
-
-      <div class="study-header" id="treeHeader">
-        <h2 id="treeCategoryTitle" style="margin: 0 0 6px; font-family: var(--hero-font-display); font-size: 2.1rem; font-weight: 800; color: var(--active-accent, var(--hero-primary)); text-shadow: 0 2px 4px rgba(0,0,0,0.15);">Category Title</h2>
-        <p style="margin: 0; color: var(--text-muted);">Before you dive in, see how a single root word branches into different parts of speech.</p>
-      </div>
-
-      <div class="morph-tree-wrap" id="morphTreeContainer">
-        <!-- Dynamically populated word-family tree -->
-      </div>
-
-      <div style="text-align: right; margin-top: 16px;">
-        <button class="trainer-btn btn-primary" id="startStudyFromTreeBtn" style="font-size: 1.1rem; padding: 14px 32px;" onclick="proceedToStudyFromTree()">
-          Continue to Reading Passage &rarr;
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="studyScreen" class="app-screen">
-    <div class="study-container">
-      <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
-        <button class="trainer-btn btn-secondary" onclick="switchScreen('treeScreen')">&larr; Back to Word Tree</button>
-        <span style="font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">Step 2 of 4: Pattern Study</span>
-      </div>
-
-      <div class="study-header" id="studyHeader">
-        <h2 id="studyTitle" style="margin: 0 0 8px; font-family: var(--hero-font-display); font-size: 2.8rem; font-weight: 800; color: var(--active-accent, var(--hero-primary)); text-shadow: 0 2px 4px rgba(0,0,0,0.15);">Category Title</h2>
-        <p id="studyDescription" style="margin: 0; color: var(--text-muted);">Study how these suffixes function naturally in context before exercising.</p>
-      </div>
-
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 20px; margin-bottom: 16px; box-shadow: var(--shadow-card);">
-        <h3 style="margin-top: 0; font-family: var(--hero-font-display); font-size: 1.45rem; color: var(--text);">📖 Step 1A: Contextual Reading Passage</h3>
-        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">
-          Read the paragraph below. <strong>Click any highlighted word</strong> to reveal its root, suffix rule, and spelling transformation. Once you've finished the passage, move on to the flashcards to memorise each word formation before starting the exercises.
-        </p>
-
-        <div class="passage-box" id="studyPassageContainer">
-          <!-- Dynamically populated passage -->
-        </div>
-
-        <div class="word-breakdown-card" id="wordBreakdownCard">
-          <!-- Dynamically populated breakdown -->
-        </div>
-      </div>
-
-      <div style="text-align: right; margin-top: 30px;">
-        <button class="trainer-btn btn-primary" id="startExerciseFromStudyBtn" style="font-size: 1.1rem; padding: 14px 32px;" onclick="goToFlashcards()">
-          I'm Ready to Memorise &rarr;
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 2: Flashcard Memorisation Screen -->
-  <div id="flashcardScreen" class="app-screen">
-    <div class="study-container">
-      <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
-        <button class="trainer-btn btn-secondary" onclick="switchScreen('studyScreen')">&larr; Back to Passage</button>
-        <span style="font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">Step 3 of 4: Flashcard Memorisation</span>
-      </div>
-
-      <div class="study-header" id="flashcardHeader" style="text-align: center; margin-bottom: 14px;">
-        <h2 id="flashcardTitle" style="margin: 0 0 8px; font-family: var(--hero-font-display); font-size: 2.4rem; font-weight: 800; color: var(--active-accent, var(--hero-primary)); text-shadow: 0 2px 4px rgba(0,0,0,0.15);">Category Title</h2>
-        <p style="margin: 0; color: var(--text-muted);">Study the stem on the front, then flip the card to see it used &mdash; with the changed part highlighted.</p>
-      </div>
-
-      <div class="flashcard-nav">
-        <span class="flashcard-counter" id="flashcardCounter">Card 1 of 20</span>
-      </div>
-
-      <div class="flashcard-wrap">
-        <div class="flashcard" id="flashcardEl" onclick="flipFlashcard()">
-          <div class="flashcard-face flashcard-front" id="flashcardFront">
-            <span class="fc-eyebrow">Stem word</span>
-            <div class="fc-stem" id="fcStemWord">word</div>
-            <span class="fc-hint">Tap to reveal &middot; used in context &rarr;</span>
-          </div>
-          <div class="flashcard-face flashcard-back" id="flashcardBack">
-            <span class="fc-eyebrow">In context</span>
-            <div class="fc-sentence" id="fcSentence">Sentence goes here.</div>
-            <span class="fc-hint">Tap to flip back</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="trainer-actions" style="margin-top: 24px;">
-        <div class="btn-group-left">
-          <button class="trainer-btn btn-secondary" id="fcPrevBtn" onclick="prevFlashcard()">Previous</button>
-          <button class="trainer-btn btn-secondary" id="fcNextBtn" onclick="nextFlashcard()">Next</button>
-        </div>
-        <div class="btn-group-right">
-          <button class="trainer-btn btn-primary" style="font-size: 1.05rem; padding: 12px 28px;" onclick="goToTrainer()">
-            Start Exercises &rarr;
+    <div class="layout">
+      <!-- LEFT: Topic, questions, images, speculating/hesitation -->
+      <div class="panel">
+        <label for="topicSelectBtn">Topic<img src="images/img013.png" alt="" class="topic-plant-deco"></label>
+        <div class="custom-select-wrapper">
+          <button type="button" id="topicSelectBtn" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="topicSelectLabel">Choose a topic&hellip;</span>
+            <span class="arrow" aria-hidden="true">&#9662;</span>
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEP 4: Interactive Single Exercise Trainer Screen -->
-  <div id="trainerScreen" class="app-screen">
-    <div class="trainer-container">
-      <div style="margin-bottom: 8px; text-align: center;">
-        <span style="font-weight: 700; font-size: 14px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px;">Step 4 of 4: Exercises</span>
-      </div>
-      <div style="margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
-        <button class="trainer-btn btn-secondary" onclick="switchScreen('flashcardScreen')">&larr; Back to Flashcards</button>
-        <button class="trainer-btn btn-secondary" onclick="openRuleModal()" style="color: #D97706; background: #FEF3C7; border-color: #FDE68A;">💡 Quick Rule Hint</button>
-      </div>
-
-      <div class="trainer-card" id="trainerCardContainer">
-        <span class="progress-indicator" id="progressIndicator">Exercise 1 of 20</span>
-        <h3 class="category-title" id="trainerCategoryTitle">Category Name</h3>
-
-        <div class="sentence-prompt" id="sentencePromptContainer">
-          <!-- Dynamically inserted sentence with input field -->
+          <ul id="topicSelectList" class="custom-select-list" role="listbox"></ul>
         </div>
 
-        <div class="feedback-box" id="feedbackBox"></div>
+        <div id="topicDesc" class="topic-desc"></div>
+        <div id="questions" class="questions-box"></div>
 
-        <div class="trainer-actions">
-          <div class="btn-group-left">
-            <button class="trainer-btn btn-secondary" id="prevBtn" onclick="prevExercise()">Previous</button>
-            <button class="trainer-btn btn-secondary" id="nextBtn" onclick="nextExercise()">Next</button>
+        <div id="imagesGrid" class="images-grid"></div>
+
+        <div class="under-panels">
+          <div class="phrase-box-under">
+            <div class="phrase-header"><h2>Speculating</h2><img src="images/img014.png" alt="" class="leaf-deco"></div>
+            <div class="phrase-body"><ul id="speculateList"></ul></div>
           </div>
-          <div class="btn-group-right">
-            <button class="trainer-btn btn-secondary" id="resetBtn" onclick="resetExercise()">&#8635; Reset</button>
-            <button class="trainer-btn btn-accent" onclick="showAnswer()">Show Answer</button>
-            <button class="trainer-btn btn-primary" id="checkBtnMain" onclick="checkAnswer()">Check Answer</button>
+
+          <div class="phrase-box-under">
+            <div class="phrase-header"><h2>Hesitation Devices</h2><img src="images/img014.png" alt="" class="leaf-deco"></div>
+            <div class="phrase-body"><ul id="hesitationList"></ul></div>
           </div>
         </div>
       </div>
+
+      <!-- RIGHT: Timer + comparing/contrasting + context examples -->
+      <div class="panel">
+        <div class="inline-timer">
+          <span class="inline-timer-label">Speaking:</span>
+          <span id="speakTimer" class="timer-display">01:00</span>
+          <div class="timer-buttons">
+            <button class="start-btn" onclick="startSpeak()">Start</button>
+            <button class="pause-btn" onclick="pauseSpeak()">Pause</button>
+            <button class="reset-btn" onclick="resetSpeak()">Reset</button>
+          </div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-group-header"><h2>Comparing</h2><img src="images/img014.png" alt="" class="leaf-deco"></div>
+          <div class="phrase-group-body"><ul id="compareList"></ul></div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-group-header"><h2>Contrasting</h2><img src="images/img014.png" alt="" class="leaf-deco"></div>
+          <div class="phrase-group-body"><ul id="contrastList"></ul></div>
+        </div>
+
+        <div class="phrase-group">
+          <div class="phrase-group-header"><h2>Context Examples</h2><img src="images/img014.png" alt="" class="leaf-deco"></div>
+          <div class="phrase-group-body">
+            <p id="contextHelp" class="context-help">
+              Click any phrase above to see it used in a sentence for this topic.
+            </p>
+            <ul id="contextList"></ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Quick Rule Modal -->
-  <div class="modal-overlay" id="ruleModal">
-    <div class="modal-card">
-      <h3 style="font-family: var(--hero-font-display); margin-top:0;" id="modalTitle">Category Rule Summary</h3>
-      <div id="modalRulesBody" style="line-height:1.6; font-size: 0.95rem; margin-bottom: 20px;">
-        <!-- Dynamically injected rules -->
-      </div>
-      <div style="text-align: right;">
-        <button class="trainer-btn btn-secondary" onclick="closeRuleModal()">Got It!</button>
-      </div>
-    </div>
-  </div>
-    </div>
-
-    
-
-  
   <script>
-/**
- * app.js — Core application data & logic for the Word Formation Masterclass.
- *
- * Contains:
- *   - categoriesData          : the full B2 word-formation dataset
- *                                (10 categories x 20 exercises x 3 rules)
- *   - startHeroJourney()      : transition from the landing page into the app
- *   - switchScreen()          : shared screen navigation helper
- *   - diffHighlightWord()     : highlights the fluctuating prefix/suffix in a
- *                                stem -> derived word pair (used by rules,
- *                                flashcards, and the passage breakdown box)
- *   - highlightAffixes()      : applies diffHighlightWord() across arrow-chain
- *                                examples inside a rule's description string
- *   - startFlow(), showBreakdown()          : Step 1 (Study & Discover) logic
- *   - goToTrainer(), loadExercise(),
- *     checkAnswer(), showAnswer(),
- *     nextExercise(), prevExercise()        : Step 3 (Trainer) logic
- *   - openRuleModal(), closeRuleModal()     : "Quick Rule Hint" popup
- *
- * Load this file BEFORE flashcards.js -- the flashcard module depends on
- * categoriesData, switchScreen(), and diffHighlightWord() being defined here.
- */
-
-
-    // Comprehensive Dataset with Extended B2 Categories + Exercises
-    const categoriesData = {
-      environment: {
-        title: "Everyday Objects & Environment",
-        accent: "#598F9A",
-        badgeBg: "#E3F1F5",
-        study: {
-          passageHtml: `Our new flat is right in the <span class="interactive-word" onclick="showBreakdown('central', 'centre (n)', '-al', 'Add -al to the noun centre to make an adjective meaning in the middle.')">central</span> part of town, so everything is close by. On Saturday mornings the market gets very <span class="interactive-word" onclick="showBreakdown('crowded', 'crowd (n)', '-ed', 'Add -ed to the noun crowd to make an adjective describing a place full of people.')">crowded</span>, but if you go early it is pleasantly <span class="interactive-word" onclick="showBreakdown('uncrowded', 'crowd (n)', 'un- + -ed', 'Add the negative prefix un- to the adjective crowded to make the opposite.')">uncrowded</span>.
-          <br><br>
-          Yesterday the street outside was extremely <span class="interactive-word" onclick="showBreakdown('dirty', 'dirt (n)', '-y', 'Add -y to the noun dirt to make an adjective, changing the final consonant.')">dirty</span> after the storm. The forecast says it will be <span class="interactive-word" onclick="showBreakdown('foggy', 'fog (n)', '-y', 'Add -y to the noun fog, doubling the final consonant.')">foggy</span> in the morning, then <span class="interactive-word" onclick="showBreakdown('rainy', 'rain (n)', '-y', 'Add -y to the noun rain to describe the weather.')">rainy</span> in the afternoon. Last winter was unusually <span class="interactive-word" onclick="showBreakdown('snowy', 'snow (n)', '-y', 'Add -y to the noun snow to describe the weather or scenery.')">snowy</span>, and today it is very <span class="interactive-word" onclick="showBreakdown('windy', 'wind (n)', '-y', 'Add -y to the noun wind to describe the weather.')">windy</span> along the coast.`,
-          rules: [
-            { title: "Weather Nouns + -y", desc: "Many weather nouns become adjectives with <b>-y</b> (e.g., <i>snow</i> <span class='arrow-connector'>&rarr;</span> <i>snowy</i>, <i>wind</i> <span class='arrow-connector'>&rarr;</span> <i>windy</i>, <i>fog</i> <span class='arrow-connector'>&rarr;</span> <i>foggy</i>, <i>rain</i> <span class='arrow-connector'>&rarr;</span> <i>rainy</i>). Watch for doubled consonants after a short vowel." },
-            { title: "Place Adjectives", desc: "Nouns describing places or conditions take suffixes such as <b>-al</b> (<i>centre</i> <span class='arrow-connector'>&rarr;</span> <i>central</i>) or <b>-y</b> (<i>dirt</i> <span class='arrow-connector'>&rarr;</span> <i>dirty</i>) to become adjectives." },
-            { title: "Negative with un-", desc: "The prefix <b>un-</b> reverses the meaning of many -ed adjectives (<i>crowded</i> <span class='arrow-connector'>&rarr;</span> <i>uncrowded</i>)." }
-          ]
-        },
-        exercises: [
-          { template: "London has a very {input} area with lots of shops and offices.", answer: "CENTRAL", root: "centre" },
-          { template: "The new hotel is in a {input} position, close to the station.", answer: "CENTRAL", root: "centre" },
-          { template: "Our office is {input}, so it's easy for everyone to reach.", answer: "CENTRAL", root: "centre" },
-          { template: "The library is in a {input} spot on the high street.", answer: "CENTRAL", root: "centre" },
-          { template: "The beach was extremely {input} on the first hot weekend of summer.", answer: "CROWDED", root: "crowd" },
-          { template: "The train was so {input} that we couldn't find a seat.", answer: "CROWDED", root: "crowd" },
-          { template: "The café gets {input} at lunchtime, so arrive before noon.", answer: "CROWDED", root: "crowd" },
-          { template: "The museum was surprisingly {input} for a Monday morning.", answer: "CROWDED", root: "crowd" },
-          { template: "We chose a quiet, {input} beach for our holiday.", answer: "UNCROWDED", root: "crowd" },
-          { template: "The early train is much more {input} than the 9 o'clock one.", answer: "UNCROWDED", root: "crowd" },
-          { template: "In April the resort is still pleasantly {input}.", answer: "UNCROWDED", root: "crowd" },
-          { template: "The car was so {input} after the trip that we had to wash it twice.", answer: "DIRTY", root: "dirt" },
-          { template: "Please take off your {input} boots before coming inside.", answer: "DIRTY", root: "dirt" },
-          { template: "The kitchen floor looked {input} after the party.", answer: "DIRTY", root: "dirt" },
-          { template: "His hands were {input} from working in the garden all day.", answer: "DIRTY", root: "dirt" },
-          { template: "Drivers should take extra care because the motorway is extremely {input} this morning.", answer: "FOGGY", root: "fog" },
-          { template: "The airport was closed because of {input} weather.", answer: "FOGGY", root: "fog" },
-          { template: "It's too {input} to see the mountains from here today.", answer: "FOGGY", root: "fog" },
-          { template: "The countryside looked mysterious on that {input} autumn morning.", answer: "FOGGY", root: "fog" },
-          { template: "We stayed indoors because it was such a {input} afternoon.", answer: "RAINY", root: "rain" },
-          { template: "April is usually the {input}est month of the year here.", answer: "RAINY", root: "rain" },
-          { template: "Take an umbrella; the forecast says it will be {input} all day.", answer: "RAINY", root: "rain" },
-          { template: "It has been a very {input} week, so the garden looks lovely and green.", answer: "RAINY", root: "rain" },
-          { template: "The mountains are especially beautiful on a {input} winter's day.", answer: "SNOWY", root: "snow" },
-          { template: "Roads were closed because of the {input} conditions.", answer: "SNOWY", root: "snow" },
-          { template: "We spent a {input} weekend skiing in the Alps.", answer: "SNOWY", root: "snow" },
-          { template: "The children loved playing outside on the {input} morning.", answer: "SNOWY", root: "snow" },
-          { template: "It's far too {input} to go sailing today.", answer: "WINDY", root: "wind" },
-          { template: "The coast can be extremely {input} in the autumn.", answer: "WINDY", root: "wind" },
-          { template: "We flew our kites because it was such a {input} afternoon.", answer: "WINDY", root: "wind" }
-        ]
-      },
-      feelings: {
-        title: "Thoughts, Feelings & Traits",
-        accent: "#7A5FB8",
-        badgeBg: "#F1EDFB",
-        study: {
-          passageHtml: `My parents were rather <span class="interactive-word" onclick="showBreakdown('worried', 'worry (v)', '-ed', 'Add -ed to the verb worry, changing y to i, for the feeling.')">worried</span> when I didn't answer my phone last night. To be honest, I was just at a very <span class="interactive-word" onclick="showBreakdown('boring', 'bore (v)', '-ing', 'Add -ing to the verb bore for the quality something has.')">boring</span> lecture and felt completely <span class="interactive-word" onclick="showBreakdown('bored', 'bore (v)', '-ed', 'Add -ed to the verb bore for the feeling a person has.')">bored</span>. My sheer <span class="interactive-word" onclick="showBreakdown('boredom', 'bore (v)', '-dom', 'Add the noun suffix -dom to bore to describe the state of being bored.')">boredom</span> made the class feel twice as long.
-          <br><br>
-          Afterwards I was very <span class="interactive-word" onclick="showBreakdown('tired', 'tire (v)', '-ed', 'Add -ed to the verb tire for the feeling.')">tired</span> too, because the whole day had been <span class="interactive-word" onclick="showBreakdown('tiring', 'tire (v)', '-ing', 'Add -ing to the verb tire for the quality of the day itself.')">tiring</span>. I must always be <span class="interactive-word" onclick="showBreakdown('careful', 'care (n)', '-ful', 'Add -ful to the noun care to make a positive adjective.')">careful</span> not to reply to messages so <span class="interactive-word" onclick="showBreakdown('carelessly', 'care (n)', '-less + -ly', 'Add -less then -ly to the noun care to make a negative adverb.')">carelessly</span> when I'm exhausted; it can look <span class="interactive-word" onclick="showBreakdown('careless', 'care (n)', '-less', 'Add -less to the noun care for the negative adjective.')">careless</span>. Anyway, I hope you believe that I'm telling you the <span class="interactive-word" onclick="showBreakdown('true', 'truth (n)', 'irregular', 'The adjective true is an irregular form related to the noun truth.')">true</span> story and not being <span class="interactive-word" onclick="showBreakdown('untruthful', 'truth (n)', 'un- + -ful', 'Add -ful to truth, then the negative prefix un-, for the negative adjective.')">untruthful</span>!`,
-          rules: [
-            { title: "Feeling vs Quality (-ed / -ing)", desc: "Verbs like <i>bore</i>, <i>tire</i> and <i>worry</i> take <b>-ed</b> for how a person feels (<i>bored</i>, <i>tired</i>, <i>worried</i>) and <b>-ing</b> for the quality of the thing itself (<i>boring</i>, <i>tiring</i>, <i>worrying</i>)." },
-            { title: "Care: -ful / -less / -ly", desc: "The noun <i>care</i> becomes <b>careful</b> (positive) or <b>careless</b> (negative), and each can take <b>-ly</b> to become an adverb: <i>carefully</i>, <i>carelessly</i>." },
-            { title: "Truth Family & un-", desc: "<i>Truth</i> (n) gives the adjective <i>true</i> and adverb <i>truly</i> (irregular spelling). Adding <b>un-</b> to <i>truthful</i> gives the negative <i>untruthful</i>." }
-          ]
-        },
-        exercises: [
-          { template: "He gets {input} very easily when someone criticises his work.", answer: "ANGRY", root: "anger" },
-          { template: "She was {input} that nobody had told her about the change of plan.", answer: "ANGRY", root: "anger" },
-          { template: "The driver shouted {input} at the cyclist who had cut in front of him.", answer: "ANGRILY", root: "anger" },
-          { template: "He slammed the door {input} and left the room.", answer: "ANGRILY", root: "anger" },
-          { template: "I found the lecture rather {input} and kept checking my phone.", answer: "BORING", root: "bore" },
-          { template: "The film was so {input} that half the audience fell asleep.", answer: "BORING", root: "bore" },
-          { template: "I felt completely {input} during the three-hour meeting.", answer: "BORED", root: "bore" },
-          { template: "The children looked {input} on the long car journey.", answer: "BORED", root: "bore" },
-          { template: "Sheer {input} made her start doodling in her notebook.", answer: "BOREDOM", root: "bore" },
-          { template: "The long queue led to a lot of {input} among the passengers.", answer: "BOREDOM", root: "bore" },
-          { template: "She was extremely {input} when reviewing the contract.", answer: "CAREFUL", root: "care" },
-          { template: "Please be {input} with that glass; it's very fragile.", answer: "CAREFUL", root: "care" },
-          { template: "His {input} mistake nearly cost the company a valuable customer.", answer: "CARELESS", root: "care" },
-          { template: "It was {input} of him to leave the door unlocked overnight.", answer: "CARELESS", root: "care" },
-          { template: "The surgeon {input} explained every step of the operation.", answer: "CAREFULLY", root: "care" },
-          { template: "She {input} checked her essay before handing it in.", answer: "CAREFULLY", root: "care" },
-          { template: "He {input} left his passport at the hotel reception.", answer: "CARELESSLY", root: "care" },
-          { template: "The report was written rather {input}, with several spelling mistakes.", answer: "CARELESSLY", root: "care" },
-          { template: "After the marathon, the runners were completely {input}.", answer: "TIRED", root: "tire" },
-          { template: "I feel {input} after such a long day at work.", answer: "TIRED", root: "tire" },
-          { template: "Moving house is a very {input} experience for the whole family.", answer: "TIRING", root: "tire" },
-          { template: "The journey was long and {input}, so we stopped twice to rest.", answer: "TIRING", root: "tire" },
-          { template: "The witness was accused of being {input} during the trial.", answer: "UNTRUTHFUL", root: "truth" },
-          { template: "It would be {input} to say the meeting went well.", answer: "UNTRUTHFUL", root: "truth" },
-          { template: "I don't think that story is {input}; it sounds made up.", answer: "TRUE", root: "truth" },
-          { template: "Is it {input} that the shop is closing down?", answer: "TRUE", root: "truth" },
-          { template: "She {input} believes that hard work always pays off.", answer: "TRULY", root: "truth" },
-          { template: "We are {input} grateful for all your help this year.", answer: "TRULY", root: "truth" },
-          { template: "My parents were rather {input} when I didn't answer my phone.", answer: "WORRIED", root: "worry" },
-          { template: "The constant delays are a {input} sign for the whole project.", answer: "WORRYING", root: "worry" }
-        ]
-      },
-      communication: {
-        title: "Communication & Social Interaction",
-        accent: "#C27665",
-        badgeBg: "#F3E1DC",
-        study: {
-          passageHtml: `Yesterday evening we had a long <span class="interactive-word" onclick="showBreakdown('discussion', 'discuss (v)', '-ion', 'Add -ion to the verb discuss to make a noun for the conversation itself.')">discussion</span> about the new office hours. Our manager gave a clear <span class="interactive-word" onclick="showBreakdown('explanation', 'explain (v)', '-ation', 'Add -ation to the verb explain to make a noun for the reason given.')">explanation</span> for the changes before the <span class="interactive-word" onclick="showBreakdown('meeting', 'meet (v)', '-ing', 'Add -ing to the verb meet to make a noun for the event itself.')">meeting</span> ended.
-          <br><br>
-          At the end, I offered a small <span class="interactive-word" onclick="showBreakdown('suggestion', 'suggest (v)', '-ion', 'Add -ion to the verb suggest to make a noun for the idea offered.')">suggestion</span> about starting a little later on Mondays, and everyone seemed to like it.`,
-          rules: [
-            { title: "-ion / -ation (Concepts)", desc: "Many verbs form abstract nouns with <b>-ion</b> or <b>-ation</b> (<i>discuss</i> <span class='arrow-connector'>&rarr;</span> <i>discussion</i>, <i>explain</i> <span class='arrow-connector'>&rarr;</span> <i>explanation</i>, <i>suggest</i> <span class='arrow-connector'>&rarr;</span> <i>suggestion</i>)." },
-            { title: "-ing (Activities & Events)", desc: "Verbs describing an activity or event can form a noun with <b>-ing</b> (<i>meet</i> <span class='arrow-connector'>&rarr;</span> <i>meeting</i>)." }
-          ]
-        },
-        exercises: [
-          { template: "There was a long {input} about the new policy at the meeting.", answer: "DISCUSSION", root: "discuss" },
-          { template: "We need to have a {input} before we make a final decision.", answer: "DISCUSSION", root: "discuss" },
-          { template: "The teacher started a class {input} about the reading assignment.", answer: "DISCUSSION", root: "discuss" },
-          { template: "After a short {input}, the committee agreed on a new date.", answer: "DISCUSSION", root: "discuss" },
-          { template: "Their {input} about the budget lasted almost two hours.", answer: "DISCUSSION", root: "discuss" },
-          { template: "A useful {input} took place between the two departments.", answer: "DISCUSSION", root: "discuss" },
-          { template: "The panel held an open {input} with the audience.", answer: "DISCUSSION", root: "discuss" },
-          { template: "Please give a clear {input} for why the flight was delayed.", answer: "EXPLANATION", root: "explain" },
-          { template: "I couldn't find a good {input} for the strange noise.", answer: "EXPLANATION", root: "explain" },
-          { template: "The teacher's {input} of the grammar rule was very clear.", answer: "EXPLANATION", root: "explain" },
-          { template: "She offered a simple {input} for her late arrival.", answer: "EXPLANATION", root: "explain" },
-          { template: "There is no easy {input} for what happened.", answer: "EXPLANATION", root: "explain" },
-          { template: "His {input} satisfied everyone at the meeting.", answer: "EXPLANATION", root: "explain" },
-          { template: "The manual gives a step-by-step {input} of the process.", answer: "EXPLANATION", root: "explain" },
-          { template: "We arranged a {input} for Friday afternoon to discuss the project.", answer: "MEETING", root: "meet" },
-          { template: "The {input} started late because of the traffic.", answer: "MEETING", root: "meet" },
-          { template: "Everyone took notes during the {input}.", answer: "MEETING", root: "meet" },
-          { template: "The staff {input} was moved to the main conference room.", answer: "MEETING", root: "meet" },
-          { template: "We ended the {input} with a short summary of the decisions.", answer: "MEETING", root: "meet" },
-          { template: "The board called an emergency {input} on Sunday.", answer: "MEETING", root: "meet" },
-          { template: "Thank you for your helpful {input} about the itinerary.", answer: "SUGGESTION", root: "suggest" },
-          { template: "Do you have any {input} for improving the website?", answer: "SUGGESTION", root: "suggest" },
-          { template: "Her {input} to change the venue was a good one.", answer: "SUGGESTION", root: "suggest" },
-          { template: "I have a small {input} about how we could save time.", answer: "SUGGESTION", root: "suggest" },
-          { template: "The teacher welcomed any {input} from the students.", answer: "SUGGESTION", root: "suggest" },
-          { template: "His {input} was accepted by the whole team.", answer: "SUGGESTION", root: "suggest" },
-          { template: "We would like to hear your {input} before Friday.", answer: "SUGGESTION", root: "suggest" },
-          { template: "The neighbours had a friendly {input} about the shared garden.", answer: "DISCUSSION", root: "discuss" },
-          { template: "I still don't have an {input} for why the printer stopped working.", answer: "EXPLANATION", root: "explain" },
-          { template: "The volunteers organised a short {input} before the event began.", answer: "MEETING", root: "meet" }
-        ]
-      },
-      quantities: {
-        title: "Quantities, Sizes & Time",
-        accent: "#2E7B8D",
-        badgeBg: "#E0FBF6",
-        study: {
-          passageHtml: `The old tower is famous for its impressive <span class="interactive-word" onclick="showBreakdown('height', 'high (adj)', 'irregular', 'High becomes the noun height through an irregular change, similar to wide to width.')">height</span>; engineers still measure it carefully. When the bridge was <span class="interactive-word" onclick="showBreakdown('initially', 'initial (adj)', '-ly', 'Add -ly to the adjective initial to make an adverb of time.')">initially</span> built, few people believed it would last so long.
-          <br><br>
-          I haven't visited that part of town <span class="interactive-word" onclick="showBreakdown('lately', 'late (adj)', '-ly', 'Add -ly to the adjective late to make an adverb meaning recently.')">lately</span>, but I hear it has changed a lot. Prices there have risen quite <span class="interactive-word" onclick="showBreakdown('recently', 'recent (adj)', '-ly', 'Add -ly to the adjective recent to make an adverb of time.')">recently</span>. The new road, however, seems too narrow: its <span class="interactive-word" onclick="showBreakdown('width', 'wide (adj)', 'irregular', 'Wide becomes the noun width through an irregular change, dropping the e and adding -th.')">width</span> is smaller than the old one.`,
-          rules: [
-            { title: "Irregular Nouns", desc: "Some adjectives form nouns with an irregular change rather than a normal suffix: <i>high</i> <span class='arrow-connector'>&rarr;</span> <i>height</i>, <i>wide</i> <span class='arrow-connector'>&rarr;</span> <i>width</i>." },
-            { title: "Time Adverbs (-ly)", desc: "Adjectives of time add <b>-ly</b> to become adverbs: <i>initial</i> <span class='arrow-connector'>&rarr;</span> <i>initially</i>, <i>late</i> <span class='arrow-connector'>&rarr;</span> <i>lately</i>, <i>recent</i> <span class='arrow-connector'>&rarr;</span> <i>recently</i>." }
-          ]
-        },
-        exercises: [
-          { template: "Engineers carefully measured the {input} of the new tower.", answer: "HEIGHT", root: "high" },
-          { template: "The plane reached a remarkably impressive {input} above the clouds.", answer: "HEIGHT", root: "high" },
-          { template: "What is the {input} of the tallest building in the city?", answer: "HEIGHT", root: "high" },
-          { template: "The fence was raised to a {input} of two metres.", answer: "HEIGHT", root: "high" },
-          { template: "She is exactly the same {input} as her older sister.", answer: "HEIGHT", root: "high" },
-          { template: "The {input} of the shelf makes it hard to reach for shorter people.", answer: "HEIGHT", root: "high" },
-          { template: "{input}, the project was expected to take only two months.", answer: "INITIALLY", root: "initial" },
-          { template: "{input}, nobody understood how the new machine worked.", answer: "INITIALLY", root: "initial" },
-          { template: "The plan was {input} rejected but later approved.", answer: "INITIALLY", root: "initial" },
-          { template: "{input} the room looked too small, but it worked well in the end.", answer: "INITIALLY", root: "initial" },
-          { template: "{input} the team struggled, but they improved quickly.", answer: "INITIALLY", root: "initial" },
-          { template: "I haven't seen my cousin {input} because she moved abroad.", answer: "RECENTLY", root: "recent" },
-          { template: "Have you been to the new café {input} opened in town?", answer: "RECENTLY", root: "recent" },
-          { template: "The company has grown quickly {input}.", answer: "RECENTLY", root: "recent" },
-          { template: "She {input} finished her degree in engineering.", answer: "RECENTLY", root: "recent" },
-          { template: "Prices have gone up quite a lot {input}.", answer: "RECENTLY", root: "recent" },
-          { template: "We {input} moved into our new flat.", answer: "RECENTLY", root: "recent" },
-          { template: "I haven't been sleeping very well {input}.", answer: "LATELY", root: "late" },
-          { template: "Have you seen John {input}? He seems very busy.", answer: "LATELY", root: "late" },
-          { template: "The weather has been unusually warm {input}.", answer: "LATELY", root: "late" },
-          { template: "{input} she has been working from home more often.", answer: "LATELY", root: "late" },
-          { template: "We haven't spoken much {input}, but I hope to call her soon.", answer: "LATELY", root: "late" },
-          { template: "The carpenter measured the {input} of the door before cutting the wood.", answer: "WIDTH", root: "wide" },
-          { template: "The {input} of the road was reduced to make space for a cycle lane.", answer: "WIDTH", root: "wide" },
-          { template: "Please give the length and {input} of the table.", answer: "WIDTH", root: "wide" },
-          { template: "The river's {input} increases significantly near the coast.", answer: "WIDTH", root: "wide" },
-          { template: "The new road's {input} is smaller than the old one's.", answer: "WIDTH", root: "wide" },
-          { template: "They checked the {input} of the doorway before buying the sofa.", answer: "WIDTH", root: "wide" },
-          { template: "The lift can carry more people because of its extra {input}.", answer: "WIDTH", root: "wide" },
-          { template: "{input}, the shop only sold books, but now it sells much more.", answer: "INITIALLY", root: "initial" }
-        ]
-      }
+    /* ============= Phrase Bank ============= */
+    const phraseBank = {
+      compare: [
+        "Both pictures show...",
+        "In both photos I can see...",
+        "These two pictures are similar because...",
+        "Another thing they have in common is...",
+        "In the same way...",
+        "In the other photo too...",
+        "Both situations show...",
+        "Both pictures give the idea that...",
+        "There is a clear similarity between the two...",
+        "In both cases, it looks like...",
+        "They both seem to show...",
+        "Another similarity is..."
+      ],
+      contrast: [
+        "However, in the first picture...",
+        "But in the second picture...",
+        "Compared to the first picture...",
+        "On the other hand...",
+        "The main difference is that...",
+        "Unlike the first picture...",
+        "This picture is more about..., while the other is about...",
+        "In the other photo, though...",
+        "A big difference is that...",
+        "The two pictures are different mainly because...",
+        "This is very different from...",
+        "The two situations are almost opposite because..."
+      ],
+      speculate: [
+        "He/She might be feeling...",
+        "They could be...",
+        "It looks like...",
+        "They might have decided to...",
+        "Maybe they are about to...",
+        "It could be that...",
+        "I think that...",
+        "He/She may be...",
+        "They are probably...",
+        "I would guess that...",
+        "It's possible that...",
+        "One reason could be that...",
+        "They seem to be in the middle of..."
+      ],
+      hesitation: [
+        "Well, let me think for a moment...",
+        "That's an interesting question...",
+        "I suppose I would say that...",
+        "Let me see...",
+        "What I mean is...",
+        "How can I put this?",
+        "Actually, thinking about it again...",
+        "I'd probably say that...",
+        "Let me just think for a second...",
+        "If I remember correctly...",
+        "I haven't really thought about that before, but...",
+        "Off the top of my head, I'd say...",
+        "I'm not sure, but I'd guess that..."
+      ]
     };
 
-    let currentCategoryKey = null;
-    let currentIndex = 0;
-    let currentExercises = [];
-
-    function startHeroJourney() {
-      document.getElementById('hero-landing').classList.add('hidden-layout-state');
-      document.getElementById('main-app-content').classList.remove('hidden-layout-state');
-    }
-
-    function switchScreen(screenId) {
-      document.querySelectorAll('.app-screen').forEach(s => s.classList.remove('active-screen'));
-      document.getElementById(screenId).classList.add('active-screen');
-      window.scrollTo(0, 0);
-    }
-
-    // Highlights the fluctuating prefix/suffix inside stem -> derived word pairs.
-    // Pattern in desc strings: <i>stem</i> <span class='arrow-connector'>...</span> <i>derived</i>
-    // Chains of multiple arrows are supported: word1 -> word2 -> word3 ...
-    // The stem (first word in a chain) is NEVER highlighted; only what changes
-    // in each subsequent derived word relative to its immediate predecessor.
-    function diffHighlightWord(prev, curr) {
-      const p = prev, c = curr;
-      const pLower = p.toLowerCase();
-      const cLower = c.toLowerCase();
-
-      // Slide the stem across every possible starting position in the derived
-      // word and measure how many characters (from the very start of the
-      // stem) match at each position. This single sweep naturally covers:
-      //   - suffix-only changes   (best match at offset 0: frost -> frosty)
-      //   - prefix-only changes   (best match at offset >0: large -> enlarge)
-      //   - combined prefix+suffix changes, where the stem sits embedded in
-      //     the middle (employ -> unemployment, satisfy -> dissatisfaction)
-      //   - irregular internal shifts (deep -> depth, high -> height)
-      // It also tolerates small spelling shifts at the tail of the stem
-      // (dropped -e, consonant doubling, y->i, etc.) because we only need
-      // the longest matching run, not a perfect whole-stem match.
-      let bestLen = 0, bestStart = 0;
-      for (let s = 0; s < cLower.length; s++) {
-        let k = 0;
-        while (k < pLower.length && s + k < cLower.length && pLower[k] === cLower[s + k]) k++;
-        if (k > bestLen) { bestLen = k; bestStart = s; }
+    /* ============= Topics & Local Images ============= */
+    const topics = [
+      {
+        id: "hobbies",
+        name: "Hobbies",
+        description: "Different types of leisure and creative activities.",
+        question1: "What are the benefits of these hobbies?",
+        question2: "What problems could they cause?",
+        images: [
+          "images/img019.jpg",
+          "images/img020.jpg",
+          "images/img021.jpg"
+        ]
+      },
+      {
+        id: "education",
+        name: "Education",
+        description: "Different learning environments and methods.",
+        question1: "What are the benefits of these ways of learning?",
+        question2: "What are the disadvantages?",
+        images: [
+          "images/img022.jpg",
+          "images/img023.jpg",
+          "images/img024.jpg"
+        ]
+      },
+      {
+        id: "work",
+        name: "Work & Careers",
+        description: "Different types of jobs and work environments.",
+        question1: "How could these jobs affect a person's life?",
+        question2: "What problems could they bring?",
+        images: [
+          "images/img025.jpg",
+          "images/img026.jpg",
+          "images/img027.jpg"
+        ]
+      },
+      {
+        id: "travel",
+        name: "Travel",
+        description: "Different ways of travelling and exploring.",
+        question1: "Why might people choose to travel this way?",
+        question2: "What problems could they cause?",
+        images: [
+          "images/img028.jpg",
+          "images/img029.jpg",
+          "images/img030.jpg"
+        ]
+      },
+      {
+        id: "sport",
+        name: "Sport & Exercise",
+        description: "Different ways of keeping fit and competing.",
+        question1: "What could people achieve by doing these sports?",
+        question2: "What problems could people have?",
+        images: [
+          "images/img031.jpg",
+          "images/img032.jpg",
+          "images/img033.jpg"
+        ]
+      },
+      {
+        id: "shopping",
+        name: "Shopping & Consumerism",
+        description: "Ways people obtain goods and services.",
+        question1: "What do these shopping habits tell us about society?",
+        question2: "What could be negative about them?",
+        images: [
+          "images/img034.jpg",
+          "images/img035.jpg",
+          "images/img036.jpg"
+        ]
+      },
+      {
+        id: "environment",
+        name: "The Environment",
+        description: "Environmental protection and impact.",
+        question1: "How could these things affect the environment?",
+        question2: "How might people react?",
+        images: [
+          "images/img037.jpg",
+          "images/img038.jpg",
+          "images/img039.jpg"
+        ]
+      },
+      {
+        id: "technology",
+        name: "Technology",
+        description: "Technology in daily and professional life.",
+        question1: "How could this technology change our lives?",
+        question2: "What disadvantages could it bring?",
+        images: [
+          "images/img040.jpg",
+          "images/img041.jpg",
+          "images/img042.jpg"
+        ]
+      },
+      {
+        id: "health",
+        name: "Health & Lifestyle",
+        description: "Choices affecting physical and mental health.",
+        question1: "How could this lifestyle affect a person's health?",
+        question2: "What difficulties could it involve?",
+        images: [
+          "images/img043.jpg",
+          "images/img044.jpg",
+          "images/img045.jpg"
+        ]
+      },
+      {
+        id: "relationships",
+        name: "Relationships & Communication",
+        description: "How people interact and stay connected.",
+        question1: "How could this way of communicating affect relationships?",
+        question2: "What misunderstandings could happen?",
+        images: [
+          "images/img046.jpg",
+          "images/img047.jpg",
+          "images/img048.jpg"
+        ]
+      },
+      {
+        id: "culture",
+        name: "Culture & Entertainment",
+        description: "Cultural and leisure activities.",
+        question1: "What are the benefits of these activities?",
+        question2: "What could be negative about them?",
+        images: [
+          "images/img049.jpg",
+          "images/img050.jpg",
+          "images/img051.jpg"
+        ]
+      },
+      {
+        id: "city_vs_country",
+        name: "City vs Countryside",
+        description: "Different living environments.",
+        question1: "How could living here affect daily life?",
+        question2: "What are the advantages and disadvantages?",
+        images: [
+          "images/img052.jpg",
+          "images/img053.jpg",
+          "images/img054.jpg"
+        ]
+      },
+      {
+        id: "transport",
+        name: "Transport",
+        description: "Ways people travel in everyday life.",
+        question1: "How could this type of transport affect daily life?",
+        question2: "What effect could it have on the environment?",
+        images: [
+          "images/img055.jpg",
+          "images/img056.jpg",
+          "images/img057.jpg"
+        ]
+      },
+      {
+        id: "food",
+        name: "Food & Eating Habits",
+        description: "Different ways of eating and socialising.",
+        question1: "How could these eating habits affect social life?",
+        question2: "What problems could they cause?",
+        images: [
+          "images/img058.jpg",
+          "images/img059.jpg",
+          "images/img060.jpg"
+        ]
+      },
+      {
+        id: "future",
+        name: "The Future & Innovation",
+        description: "Technology and upcoming societal change.",
+        question1: "How could this change everyday life?",
+        question2: "What difficulties might people have getting used to it?",
+        images: [
+          "images/img061.jpg",
+          "images/img062.jpg",
+          "images/img063.jpg"
+        ]
       }
+    ];
 
-      // No recognisable shared root at all (fully irregular/suppletive pair,
-      // e.g. steal -> theft) -- don't guess, just show the word plain.
-      if (bestLen === 0) return c;
+    /* ============= DOM References ============= */
+    const topicSelectBtn   = document.getElementById("topicSelectBtn");
+    const topicSelectList  = document.getElementById("topicSelectList");
+    const topicSelectLabel = document.getElementById("topicSelectLabel");
+    let currentTopicId = null;
+    const topicDesc    = document.getElementById("topicDesc");
+    const questionsEl  = document.getElementById("questions");
+    const imagesGrid   = document.getElementById("imagesGrid");
 
-      const before = c.slice(0, bestStart);
-      const core = c.slice(bestStart, bestStart + bestLen);
-      const after = c.slice(bestStart + bestLen);
-      let out = core;
-      if (before) out = `<span class="affix-hl">${before}</span>` + out;
-      if (after) out = out + `<span class="affix-hl">${after}</span>`;
-      return out;
+    const compareList    = document.getElementById("compareList");
+    const contrastList   = document.getElementById("contrastList");
+    const speculateList  = document.getElementById("speculateList");
+    const hesitationList = document.getElementById("hesitationList");
+
+    const contextList = document.getElementById("contextList");
+    const contextHelp = document.getElementById("contextHelp");
+
+    /* ============= Helpers ============= */
+    function buildExampleSentence(category, phrase, topicName) {
+      const lowerTopic = topicName.toLowerCase();
+
+      if (category === "compare") {
+        return `${phrase} different aspects of ${lowerTopic}, as shown in these two pictures.`;
+      }
+      if (category === "contrast") {
+        return `${phrase} the two images reveal contrasting attitudes towards ${lowerTopic}.`;
+      }
+      if (category === "speculate") {
+        return `${phrase} the people in the photos are responding to issues connected with ${lowerTopic}.`;
+      }
+      if (category === "hesitation") {
+        return `${phrase} I'm trying to decide how best to describe these pictures about ${lowerTopic}.`;
+      }
+      return phrase;
     }
 
-    function highlightAffixes(desc) {
-      const chainPattern = /<i>([^<>]+)<\/i>(?:\s*<span class='arrow-connector'>&rarr;<\/span>\s*<i>([^<>]+)<\/i>)+/g;
-      return desc.replace(chainPattern, (fullMatch) => {
-        // Pull out every <i>word</i> in this chain, in order.
-        const words = [];
-        const wordRe = /<i>([^<>]+)<\/i>/g;
-        let wm;
-        while ((wm = wordRe.exec(fullMatch)) !== null) words.push(wm[1]);
-        const arrowSpan = " <span class='arrow-connector'>&rarr;</span> ";
-        let out = `<i>${words[0]}</i>`;
-        for (let i = 1; i < words.length; i++) {
-          out += arrowSpan + `<i>${diffHighlightWord(words[i - 1], words[i])}</i>`;
-        }
-        return out;
+    function fillList(ul, items, category) {
+      ul.innerHTML = "";
+      items.forEach(text => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        li.addEventListener("click", () => {
+          const topic = topics.find(t => t.id === currentTopicId);
+          const topicName = topic ? topic.name : "this topic";
+          const example = buildExampleSentence(category, text, topicName);
+
+          contextHelp.style.display = "none";
+          contextList.innerHTML = "";
+          const exLi = document.createElement("li");
+          exLi.textContent = example;
+          contextList.appendChild(exLi);
+        });
+        ul.appendChild(li);
       });
     }
 
-    function startFlow(categoryKey) {
-      currentCategoryKey = categoryKey;
-      const cat = categoriesData[categoryKey];
-
-      // Setup Study Screen
-      document.getElementById('studyTitle').textContent = cat.title;
-      document.getElementById('studyHeader').style.setProperty('--active-accent', cat.accent);
-      document.getElementById('studyPassageContainer').innerHTML = cat.study.passageHtml;
-      
-      const breakdownBox = document.getElementById('wordBreakdownCard');
-      breakdownBox.style.display = 'none';
-      breakdownBox.innerHTML = '';
-
-      switchScreen('studyScreen');
+    function populatePhraseBoxes() {
+      fillList(compareList,    phraseBank.compare,    "compare");
+      fillList(contrastList,   phraseBank.contrast,   "contrast");
+      fillList(speculateList,  phraseBank.speculate,  "speculate");
+      fillList(hesitationList, phraseBank.hesitation, "hesitation");
     }
 
-    function showBreakdown(word, root, affix, note) {
-      const box = document.getElementById('wordBreakdownCard');
-      box.style.display = 'block';
-      box.innerHTML = `
-        <div style="font-weight: 700; font-size: 1.05rem; color: #1E40AF; margin-bottom: 4px;">🔍 Word Analysis: "${word}"</div>
-        <div style="display: flex; gap: 16px; margin-bottom: 8px; font-weight: 600;">
-          <span>Root: <strong>${root}</strong></span>
-          <span>Affix: <strong>${affix}</strong></span>
-        </div>
-        <div style="color: var(--text-2);">${note}</div>
-      `;
+    function selectTopic(topicId) {
+      currentTopicId = topicId;
+      const topic = topics.find(t => t.id === topicId);
+      topicSelectLabel.textContent = topic ? topic.name : "Choose a topic…";
+
+      Array.from(topicSelectList.children).forEach(li => {
+        li.classList.toggle("selected", li.dataset.value === topicId);
+      });
+
+      topicSelectList.classList.remove("open");
+      topicSelectBtn.classList.remove("open");
+      topicSelectBtn.setAttribute("aria-expanded", "false");
+
+      renderTopic();
     }
 
+    function populateTopics() {
+      topics.forEach((topic, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. ${topic.name}`;
+        li.dataset.value = topic.id;
+        li.setAttribute("role", "option");
+        li.addEventListener("click", () => selectTopic(topic.id));
+        topicSelectList.appendChild(li);
+      });
 
-    // Fisher-Yates shuffle -- used to mix up exercise order each time
-    // the student (re)starts a category's exercises.
-    function shuffleArray(arr) {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
+      topicSelectBtn.addEventListener("click", () => {
+        const isOpen = topicSelectList.classList.toggle("open");
+        topicSelectBtn.classList.toggle("open", isOpen);
+        topicSelectBtn.setAttribute("aria-expanded", String(isOpen));
+      });
 
-    function goToTrainer() {
-      // Copy the exercises so the original data order is preserved, then
-      // shuffle the copy so each reset gives a fresh sequence.
-      currentExercises = shuffleArray(categoriesData[currentCategoryKey].exercises.slice());
-      currentIndex = 0;
-
-      const cat = categoriesData[currentCategoryKey];
-      document.getElementById('trainerCategoryTitle').textContent = cat.title;
-
-      const card = document.getElementById('trainerCardContainer');
-      card.style.setProperty('--active-accent', cat.accent);
-      card.style.setProperty('--badge-bg', cat.badgeBg);
-
-      switchScreen('trainerScreen');
-      loadExercise();
-    }
-
-    function loadExercise() {
-      const ex = currentExercises[currentIndex];
-      document.getElementById('progressIndicator').textContent = `Exercise ${currentIndex + 1} of ${currentExercises.length}`;
-      
-      const container = document.getElementById('sentencePromptContainer');
-      const inputHtml = `<input type="text" id="userAnswerInput" class="user-answer-input" placeholder="Type answer..." autocomplete="off"><span class="root-hint">(${ex.root})</span>`;
-      
-      if (ex.template.includes('{input}')) {
-        container.innerHTML = ex.template.replace('{input}', inputHtml);
-      } else if (ex.template.includes('________')) {
-        container.innerHTML = ex.template.replace('________', inputHtml);
-      }
-
-      document.getElementById('feedbackBox').textContent = '';
-      document.getElementById('feedbackBox').className = 'feedback-box';
-
-      document.getElementById('prevBtn').disabled = currentIndex === 0;
-      document.getElementById('prevBtn').style.opacity = currentIndex === 0 ? '0.5' : '1';
-      
-      document.getElementById('nextBtn').disabled = currentIndex === currentExercises.length - 1;
-      document.getElementById('nextBtn').style.opacity = currentIndex === currentExercises.length - 1 ? '0.5' : '1';
-
-      setTimeout(() => {
-        const inputEl = document.getElementById('userAnswerInput');
-        if (inputEl) {
-          inputEl.focus();
-          inputEl.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') checkAnswer();
-          });
+      document.addEventListener("click", (e) => {
+        if (!topicSelectBtn.contains(e.target) && !topicSelectList.contains(e.target)) {
+          topicSelectList.classList.remove("open");
+          topicSelectBtn.classList.remove("open");
+          topicSelectBtn.setAttribute("aria-expanded", "false");
         }
-      }, 50);
+      });
     }
 
-    function checkAnswer() {
-      const inputEl = document.getElementById('userAnswerInput');
-      const feedback = document.getElementById('feedbackBox');
-      if (!inputEl) return;
+    function renderTopic() {
+      const topic = topics.find(t => t.id === currentTopicId);
+      if (!topic) return;
 
-      const userVal = inputEl.value.trim().toUpperCase();
-      const correctVal = currentExercises[currentIndex].answer.toUpperCase();
+      topicDesc.textContent = topic.description;
+      questionsEl.innerHTML = `
+        <strong>Guiding questions:</strong><br>
+        • ${topic.question1}<br>
+        • ${topic.question2}
+      `;
 
-      if (userVal === "") {
-        feedback.textContent = "Please enter an answer first!";
-        feedback.className = "feedback-box error";
-        return;
-      }
+      imagesGrid.innerHTML = "";
+      topic.images.forEach(src => {
+        const card = document.createElement("div");
+        card.className = "img-card";
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = topic.name;
+        card.appendChild(img);
+        imagesGrid.appendChild(card);
+      });
 
-      if (userVal === correctVal) {
-        inputEl.classList.remove('incorrect');
-        inputEl.classList.add('correct');
-        feedback.textContent = "Correct! Excellent grasp of the morphological rule.";
-        feedback.className = "feedback-box success";
-      } else {
-        inputEl.classList.remove('correct');
-        inputEl.classList.add('incorrect');
-        feedback.textContent = "Not quite right. Review the root word and try again or show answer.";
-        feedback.className = "feedback-box error";
-      }
+      contextList.innerHTML = "";
+      contextHelp.style.display = "block";
     }
 
-    function showAnswer() {
-      const inputEl = document.getElementById('userAnswerInput');
-      const feedback = document.getElementById('feedbackBox');
-      if (!inputEl) return;
+    /* ============= Timer Logic ============= */
+    let speakTime = 60;
+    let speakInterval = null;
 
-      inputEl.value = currentExercises[currentIndex].answer.toUpperCase();
-      inputEl.classList.remove('incorrect');
-      inputEl.classList.add('correct');
-      feedback.textContent = `Solution revealed: ${currentExercises[currentIndex].answer.toUpperCase()}`;
-      feedback.className = "feedback-box reveal";
+    function updateSpeakDisplay() {
+      const m = String(Math.floor(speakTime / 60)).padStart(2, "0");
+      const s = String(speakTime % 60).padStart(2, "0");
+      document.getElementById("speakTimer").textContent = `${m}:${s}`;
     }
 
-    function resetExercise() {
-      const inputEl = document.getElementById('userAnswerInput');
-      const feedback = document.getElementById('feedbackBox');
-      if (!inputEl) return;
-
-      inputEl.value = '';
-      inputEl.classList.remove('correct', 'incorrect');
-      feedback.textContent = '';
-      feedback.className = 'feedback-box';
-      inputEl.focus();
+    function startSpeak() {
+      if (speakInterval) return;
+      speakInterval = setInterval(() => {
+        if (speakTime > 0) {
+          speakTime--;
+          updateSpeakDisplay();
+        } else {
+          pauseSpeak();
+        }
+      }, 1000);
     }
 
-    function nextExercise() {
-      if (currentIndex < currentExercises.length - 1) {
-        currentIndex++;
-        loadExercise();
-      }
+    function pauseSpeak() {
+      clearInterval(speakInterval);
+      speakInterval = null;
     }
 
-    function prevExercise() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        loadExercise();
-      }
+    function resetSpeak() {
+      pauseSpeak();
+      speakTime = 60;
+      updateSpeakDisplay();
     }
 
-    function openRuleModal() {
-      const cat = categoriesData[currentCategoryKey];
-      document.getElementById('modalTitle').textContent = `${cat.title} - Key Rules`;
-      document.getElementById('modalRulesBody').innerHTML = cat.study.rules.map(r => `
-        <div style="margin-bottom: 12px;">
-          <strong style="color: ${cat.accent};">${r.title}:</strong> ${highlightAffixes(r.desc)}
-        </div>
-      `).join('');
-      document.getElementById('ruleModal').classList.add('active');
-    }
-
-    function closeRuleModal() {
-      document.getElementById('ruleModal').classList.remove('active');
-    }
-  
-
-/**
- * morphology-tree.js — Interactive "Morphology Tree" (Word Families).
- *
- * Shown as Step 1, before a student dives into a category's reading passage.
- * A single root word branches into the different parts of speech it can
- * take (verb, noun, adjective, negative forms, etc.), so students see the
- * whole word family at a glance before studying one transformation at a time.
- *
- * Depends on globals defined in app.js (loaded before this file):
- *   - currentCategoryKey  (which category is currently active)
- *   - switchScreen()      (screen navigation helper)
- *   - startFlow()         (moves on to the Study screen / Step 2)
- */
-
-const morphologyTreeData = {
-  environment: {
-    root: "WIND",
-    gloss: "moving air; also the season-related weather noun family",
-    branches: [
-      { pos: "Noun", words: ["wind"], example: "The wind was strong along the coast today." },
-      { pos: "Adjective", words: ["windy"], example: "It's far too windy to go sailing this afternoon." },
-      { pos: "Related: crowd", words: ["crowded", "uncrowded"], example: "The beach was crowded in July but uncrowded in April." },
-      { pos: "Related: centre", words: ["central"], example: "Our new flat is in a very central position." }
-    ]
-  },
-  feelings: {
-    root: "CARE",
-    gloss: "serious attention given to a task, or worry about something",
-    branches: [
-      { pos: "Noun", words: ["care"], example: "Handle the antique vase with great care." },
-      { pos: "Adjective", words: ["careful", "careless"], example: "He is always careful with money, but careless with his keys." },
-      { pos: "Adverb", words: ["carefully", "carelessly"], example: "She carefully checked her work, unlike her colleague who worked carelessly." },
-      { pos: "Related: worry", words: ["worried", "worrying"], example: "My parents were worried about the worrying news." },
-      { pos: "Related: bore", words: ["boring", "bored", "boredom"], example: "The boring lecture left everyone bored and full of boredom." }
-    ]
-  },
-  communication: {
-    root: "SUGGEST",
-    gloss: "to offer an idea or plan for other people to consider",
-    branches: [
-      { pos: "Verb", words: ["suggest"], example: "I suggest we start the meeting a little later." },
-      { pos: "Noun", words: ["suggestion"], example: "Thank you for your helpful suggestion." },
-      { pos: "Related: discuss", words: ["discussion"], example: "We had a long discussion about the new office hours." },
-      { pos: "Related: explain", words: ["explanation"], example: "She gave a clear explanation for the delay." },
-      { pos: "Related: meet", words: ["meeting"], example: "The meeting was moved to Friday afternoon." }
-    ]
-  },
-  quantities: {
-    root: "HIGH",
-    gloss: "having a great distance from the ground or top to bottom",
-    branches: [
-      { pos: "Adjective", words: ["high"], example: "The tower is extremely high." },
-      { pos: "Noun (irregular)", words: ["height"], example: "Engineers measured the height of the tower carefully." },
-      { pos: "Related: wide", words: ["width"], example: "The width of the road was reduced for a cycle lane." },
-      { pos: "Related: late/recent/initial", words: ["lately", "recently", "initially"], example: "Initially the plan seemed risky, but recently it has worked well, and I've thought about it a lot lately." }
-    ]
-  }
-};
-
-function openCategory(key) {
-  currentCategoryKey = key;
-  renderMorphologyTree(key);
-  switchScreen('treeScreen');
-}
-
-function renderMorphologyTree(key) {
-  const cat = categoriesData[key];
-  const tree = morphologyTreeData[key];
-
-  document.getElementById('treeCategoryTitle').textContent = cat.title;
-  document.getElementById('treeHeader').style.setProperty('--active-accent', cat.accent);
-
-  const container = document.getElementById('morphTreeContainer');
-  container.style.setProperty('--active-accent', cat.accent);
-
-  if (!tree) {
-    container.innerHTML = '<p style="color: var(--text-muted);">No word family available for this category yet.</p>';
-    return;
-  }
-
-  const branchesHtml = tree.branches.map((b, i) => `
-    <div class="morph-branch" onclick="toggleTreeBranch(this)">
-      <div class="morph-branch-pos">${b.pos}</div>
-      <div class="morph-branch-words">${b.words.join(', ')}</div>
-      <div class="morph-branch-hint">Tap to see it in a sentence &darr;</div>
-      <div class="morph-branch-example">${b.example}</div>
-    </div>
-  `).join('');
-
-  container.innerHTML = `
-    <div class="morph-root-node">${tree.root}</div>
-    <div class="morph-root-gloss">${tree.gloss}</div>
-    <div class="morph-trunk"></div>
-    <div class="morph-branches">
-      ${branchesHtml}
-    </div>
-  `;
-}
-
-function toggleTreeBranch(el) {
-  el.classList.toggle('expanded');
-}
-
-function proceedToStudyFromTree() {
-  startFlow(currentCategoryKey);
-}
-
-
-/**
- * flashcards.js — Flashcard memorisation flow (Step 2, between Study and Trainer)
- *
- * Depends on globals defined in app.js (loaded before this file):
- *   - categoriesData          (the word-formation dataset)
- *   - currentCategoryKey      (which category is currently active)
- *   - switchScreen()          (screen navigation helper)
- *   - diffHighlightWord()     (shared prefix/suffix highlighting logic)
- *
- * Front of card: the bare stem word to recall.
- * Back of card: the derived word used in a real sentence, with the part
- * that changed from the stem (prefix/suffix/internal shift) highlighted --
- * reusing the exact same diffHighlightWord() logic as the study rules,
- * so highlighting stays consistent everywhere in the app.
- */
-
-let currentFlashcards = [];
-let currentFlashcardIndex = 0;
-
-function goToFlashcards() {
-  currentFlashcards = categoriesData[currentCategoryKey].exercises;
-  currentFlashcardIndex = 0;
-
-  const cat = categoriesData[currentCategoryKey];
-  document.getElementById('flashcardTitle').textContent = cat.title;
-
-  const el = document.getElementById('flashcardEl');
-  el.style.setProperty('--active-accent', cat.accent);
-  el.style.setProperty('--badge-bg', cat.badgeBg);
-
-  switchScreen('flashcardScreen');
-  loadFlashcard();
-}
-
-function buildFlashcardSentenceHtml(ex) {
-  const startsWithBlank = ex.template.trim().startsWith('{input}') || ex.template.trim().startsWith('________');
-  let derivedDisplay = ex.answer.toLowerCase();
-  if (startsWithBlank) {
-    derivedDisplay = derivedDisplay.charAt(0).toUpperCase() + derivedDisplay.slice(1);
-  }
-  const highlightedWord = `<strong>${diffHighlightWord(ex.root, derivedDisplay)}</strong>`;
-
-  if (ex.template.includes('{input}')) {
-    return ex.template.replace('{input}', highlightedWord);
-  } else if (ex.template.includes('________')) {
-    return ex.template.replace('________', highlightedWord);
-  }
-  return ex.template;
-}
-
-function loadFlashcard() {
-  const ex = currentFlashcards[currentFlashcardIndex];
-  document.getElementById('flashcardCounter').textContent = `Card ${currentFlashcardIndex + 1} of ${currentFlashcards.length}`;
-  document.getElementById('fcStemWord').textContent = ex.root;
-  document.getElementById('fcSentence').innerHTML = buildFlashcardSentenceHtml(ex);
-
-  // Always show the front side when a new card loads.
-  document.getElementById('flashcardEl').classList.remove('is-flipped');
-
-  document.getElementById('fcPrevBtn').disabled = currentFlashcardIndex === 0;
-  document.getElementById('fcPrevBtn').style.opacity = currentFlashcardIndex === 0 ? '0.5' : '1';
-
-  document.getElementById('fcNextBtn').disabled = currentFlashcardIndex === currentFlashcards.length - 1;
-  document.getElementById('fcNextBtn').style.opacity = currentFlashcardIndex === currentFlashcards.length - 1 ? '0.5' : '1';
-}
-
-function flipFlashcard() {
-  document.getElementById('flashcardEl').classList.toggle('is-flipped');
-}
-
-function nextFlashcard() {
-  if (currentFlashcardIndex < currentFlashcards.length - 1) {
-    currentFlashcardIndex++;
-    loadFlashcard();
-  }
-}
-
-function prevFlashcard() {
-  if (currentFlashcardIndex > 0) {
-    currentFlashcardIndex--;
-    loadFlashcard();
-  }
-}
-
+    /* ============= Init ============= */
+    populatePhraseBoxes();
+    populateTopics();
+    selectTopic(topics[0].id);
+    updateSpeakDisplay();
   </script>
+    </div>
+
+    <script>
+        function startHeroJourney() {
+            document.getElementById('hero-landing').classList.add('hidden-layout-state');
+            document.getElementById('main-app-content').classList.remove('hidden-layout-state');
+        }
+    </script>
 </body>
 </html>
